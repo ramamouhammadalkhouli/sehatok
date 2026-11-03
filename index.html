@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منصة صحتك - حجز المواعيد الطبية في دوما</title>
+    
+    <!-- Bootstrap 5 RTL CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.rtl.min.css">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom Style -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- استيراد خط Cairo من Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&display=swap" rel="stylesheet"></head>
+<body>
+
+<div id="navbar-placeholder"></div>
+ 
+<br><br>
+
+<!-- السيكشن الرئيسي (Hero Section) مع البحث والإحصائيات المتوسطة والتخصصات -->
+<section class="hero-section py-5 position-relative overflow-hidden">
+    <div class="hero-bg-glow position-absolute top-0 start-50 translate-middle-x rounded-circle opacity-10"></div>
+    <div class="container position-relative z-1">
+        
+        <!-- 1. العنوان الرئيسي والجذاب -->
+        <div class="row justify-content-center text-center mb-4">
+            <div class="col-lg-9 col-xl-8">
+                <div class="d-inline-flex align-items-center gap-2 bg-success-subtle text-success px-3 py-2 rounded-pill mb-3 border border-success-subtle shadow-sm">
+                    <i class="fa-solid fa-bolt-lightning fs-6"></i>
+                    <span class="small fw-bold">المنصة الطبية الأولى والحديثة في مدينة دوما</span>
+                </div>
+                <h1 class="fw-black display-4 mb-3 lh-sm text-main-custom">
+                    رعايتك الطبية أسهل.. <br class="d-none d-md-block">
+                    <span class="text-primary-custom position-relative d-inline-block">
+                        احجز موعدك
+                        <svg class="header-underline" viewBox="0 0 100 20" preserveAspectRatio="none"><path d="M0 15 Q 50 0 100 15" stroke="var(--primary-green)" stroke-width="4" fill="none"/></svg>
+                    </span>
+                     وتابع دورك خطوة بخطوة
+                </h1>
+            </div>
+        </div>
+
+        <!-- 2. شريط البحث السريع والذكي (متوسط تماماً) -->
+        <div class="card border-0 rounded-4 p-2 shadow-lg mb-4 mx-auto" style="background-color: #ffffff; border: 1px solid var(--border-color) !important; max-width: 850px;">
+            <form action="pages/centers.html" method="GET" class="row g-2 align-items-center">
+                
+                <div class="col-md-7">
+                    <div class="input-group border-0 bg-transparent px-2">
+                        <span class="input-group-text bg-transparent border-0 text-muted ps-0">
+                            <i class="fa-solid fa-magnifying-glass fs-5" style="color: var(--primary-green);"></i>
+                        </span>
+                        <input type="text" class="form-control border-0 bg-transparent shadow-none py-2 text-rigth" placeholder="ابحث عن عيادة، مركز، أو طبيب..." style="color: var(--text-main);">
+                    </div>
+                </div>
+
+                <div class="col-md-3 d-none d-md-block border-start" style="border-color: rgba(0,0,0,0.1) !important;">
+                    <div class="dropdown w-100 text-end px-2">
+                        <!-- <span class="small text-muted d-block"  style="font-size: 0.7rem;">المنطقة</span> -->
+                        <select class="form-select form-select-sm border-0 bg-transparent shadow-none fw-semibold p-0 text-rigth" style="color: var(--text-main);">
+                            <option value="1">المناطق</option>
+                            <option value="1">شارع الجلاء</option>
+                            <option value="2">الكورنيش</option>
+                            <option value="3">شارع الحجار</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="col-md-2">
+                    <button type="submit" class="btn w-100 rounded-pill py-2 text-white fw-bold btn-hover-effect" style="background-color: var(--primary-green);">
+                        بحث
+                    </button>
+                </div>
+
+            </form>
+        </div>
+
+        <!-- 3. إحصائيات سريعة بمربعات بارزة ومتوسطة (خلفية خضراء ناعمة وواضحة جداً) -->
+        <div class="d-flex flex-wrap align-items-center justify-content-center gap-3 mt-4 mb-5">
+            
+            <!-- مربع الإحصائية 1 -->
+            <div class="card border-0 rounded-4 px-4 py-3 text-center shadow-sm transition-all" style="background-color: rgba(16, 185, 129, 0.08); border: 1px solid rgba(16, 185, 129, 0.2) !important; min-width: 150px;">
+                <h3 class="fw-black mb-1" style="color: var(--primary-hover);">15+</h3>
+                <span class="small fw-semibold" style="color: var(--text-main); font-size: 0.85rem;">عيادة ومركز</span>
+            </div>
+
+            <!-- مربع الإحصائية 2 -->
+            <div class="card border-0 rounded-4 px-4 py-3 text-center shadow-sm transition-all" style="background-color: rgba(16, 185, 129, 0.05); border: 1px solid rgba(16, 185, 129, 0.2) !important; min-width: 150px;">
+                <h3 class="fw-black mb-1" style="color: var(--primary-hover);">50+</h3>
+                <span class="small fw-semibold" style="color: var(--text-main); font-size: 0.85rem;">طبيب واختصاصي</span>
+            </div>
+
+            <!-- مربع الإحصائية 3 -->
+            <div class="card border-0 rounded-4 px-4 py-3 text-center shadow-sm transition-all" style="background-color: rgba(46, 185, 139, 0.05); border: 1px solid rgba(16, 185, 129, 0.2) !important; min-width: 150px;">
+                <h3 class="fw-black mb-1" style="color: var(--primary-hover);">12+</h3>
+                <span class="small fw-semibold" style="color: var(--text-main); font-size: 0.85rem;">تخصص طبي</span>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- 4. قسم التخصصات السريعة -->
+<section class="container my-5">
+    <div class="row justify-content-between align-items-center mb-4">
+        <div>
+            <span class="badge bg-primary-subtle text-primary-custom px-3 py-2 rounded-pill fw-semibold mb-2">التخصصات الطبية</span>
+            <h2 class="fw-bold text-main-custom">اختر التخصص الذي تحتاجه</h2>
+            <p class="text-muted small">تصفح أبرز العيادات والمراكز الطبية حسب التخصص المطلوب بكل سهولة</p>
+        </div>
+    </div>
+
+    <!-- شبكة الأيقونات والتخصصات -->
+   <!-- شبكة الأيقونات والتخصصات بتأثيرات الهافر الفخمة -->
+<div class="row g-3 text-center">
+    
+    <!-- تخصص 1: باطنة -->
+    <div class="col-6 col-md-4 col-lg-3">
+        <a href="pages/centers.html?spec=internal" class="card spec-card rounded-4 p-4 text-decoration-none h-100 d-flex flex-column align-items-center justify-content-center">
+            <div class="icon-box bg-primary-subtle text-primary-custom rounded-circle p-3 mb-3 d-flex align-items-center justify-content-center" style="width: 65px; height: 65px;">
+                <i class="fa-solid fa-stethoscope fs-4"></i>
+            </div>
+            <h6 class="fw-bold text-main-custom mb-0">باطنة</h6>
+        </a>
+    </div>
+
+    <!-- تخصص 2: أطفال -->
+    <div class="col-6 col-md-4 col-lg-3">
+        <a href="pages/centers.html?spec=pediatrics" class="card spec-card rounded-4 p-4 text-decoration-none h-100 d-flex flex-column align-items-center justify-content-center">
+            <div class="icon-box bg-success-subtle text-success rounded-circle p-3 mb-3 d-flex align-items-center justify-content-center" style="width: 65px; height: 65px;">
+                <i class="fa-solid fa-child fs-4"></i>
+            </div>
+            <h6 class="fw-bold text-main-custom mb-0">أطفال</h6>
+        </a>
+    </div>
+
+    <!-- تخصص 3: أسنان -->
+    <div class="col-6 col-md-4 col-lg-3">
+        <a href="pages/centers.html?spec=dental" class="card spec-card rounded-4 p-4 text-decoration-none h-100 d-flex flex-column align-items-center justify-content-center">
+            <div class="icon-box bg-warning-subtle text-warning-emphasis rounded-circle p-3 mb-3 d-flex align-items-center justify-content-center" style="width: 65px; height: 65px;">
+                <i class="fa-solid fa-tooth fs-4"></i>
+            </div>
+            <h6 class="fw-bold text-main-custom mb-0">أسنان</h6>
+        </a>
+    </div>
+
+    <!-- تخصص 4: عظام -->
+    <div class="col-6 col-md-4 col-lg-3">
+        <a href="pages/centers.html?spec=bones" class="card spec-card rounded-4 p-4 text-decoration-none h-100 d-flex flex-column align-items-center justify-content-center">
+            <div class="icon-box bg-info-subtle text-info rounded-circle p-3 mb-3 d-flex align-items-center justify-content-center" style="width: 65px; height: 65px;">
+                <i class="fa-solid fa-bone fs-4"></i>
+            </div>
+            <h6 class="fw-bold text-main-custom mb-0">عظام</h6>
+        </a>
+    </div>
+
+    <!-- تخصص 5: عيون -->
+    <div class="col-6 col-md-4 col-lg-3">
+        <a href="pages/centers.html?spec=eyes" class="card spec-card rounded-4 p-4 text-decoration-none h-100 d-flex flex-column align-items-center justify-content-center">
+            <div class="icon-box bg-danger-subtle text-danger rounded-circle p-3 mb-3 d-flex align-items-center justify-content-center" style="width: 65px; height: 65px;">
+                <i class="fa-solid fa-eye fs-4"></i>
+            </div>
+            <h6 class="fw-bold text-main-custom mb-0">عيون</h6>
+        </a>
+    </div>
+
+    <!-- تخصص 6: قلبية -->
+    <div class="col-6 col-md-4 col-lg-3">
+        <a href="pages/centers.html?spec=heart" class="card spec-card rounded-4 p-4 text-decoration-none h-100 d-flex flex-column align-items-center justify-content-center">
+            <div class="icon-box bg-danger-subtle text-danger rounded-circle p-3 mb-3 d-flex align-items-center justify-content-center" style="width: 65px; height: 65px;">
+                <i class="fa-solid fa-heart-pulse fs-4"></i>
+            </div>
+            <h6 class="fw-bold text-main-custom mb-0">قلبية</h6>
+        </a>
+    </div>
+
+    <!-- تخصص 7: نسائية وتوليد -->
+    <div class="col-6 col-md-4 col-lg-3">
+        <a href="pages/centers.html?spec=women" class="card spec-card rounded-4 p-4 text-decoration-none h-100 d-flex flex-column align-items-center justify-content-center">
+            <div class="icon-box bg-primary-subtle text-primary-custom rounded-circle p-3 mb-3 d-flex align-items-center justify-content-center" style="width: 65px; height: 65px;">
+                <i class="fa-solid fa-person-pregnant fs-4"></i>
+            </div>
+            <h6 class="fw-bold text-main-custom mb-0">نسائية وتوليد</h6>
+        </a>
+    </div>
+
+    <!-- تخصص 8: جراحة عامة -->
+    <div class="col-6 col-md-4 col-lg-3">
+        <a href="pages/centers.html?spec=surgery" class="card spec-card rounded-4 p-4 text-decoration-none h-100 d-flex flex-column align-items-center justify-content-center">
+            <div class="icon-box bg-secondary-subtle text-secondary rounded-circle p-3 mb-3 d-flex align-items-center justify-content-center" style="width: 65px; height: 65px;">
+                <i class="fa-solid fa-syringe fs-4"></i>
+            </div>
+            <h6 class="fw-bold text-main-custom mb-0">جراحة عامة</h6>
+        </a>
+    </div>
+
+</div>
+</section>
+
+<!-- بانر هل أنت مستعد لحجز موعدك؟ -->
+<section class="container my-5">
+    <div class="p-5 rounded-4 text-white position-relative overflow-hidden shadow-lg" 
+         style="background: linear-gradient(135deg, var(--primary-green) 0%, var(--primary-hover) 100%);">
+        <div class="row align-items-center position-relative z-1">
+            <div class="col-lg-8 text-center text-lg-start mb-4 mb-lg-0">
+                <h2 class="fw-bold display-6 mb-3 text-white">هل أنت مستعد لحجز موعدك؟</h2>
+                <p class="lead fs-6 opacity-75 mb-0 text-white">اختر العيادة، واطلع على الأوقات المتاحة فعلياً، وأرسل طلبك فوراً لتؤكده العيادة.</p>
+            </div>
+            <div class="col-lg-4 text-center text-lg-end">
+                <a href="pages/centers.html" 
+                   class="btn bg-white fw-bold px-4 py-3 rounded-pill shadow-sm fs-6 d-inline-flex align-items-center gap-2 border-0"
+                   style="color: var(--primary-hover);">
+                    <i class="fa-regular fa-calendar-check"></i>
+                    <span>ابدأ الحجز الآن</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- قسم المراكز والعيادات الطبية -->
+
+<!-- قسم أحدث العيادات والمراكز الطبية -->
+<section class="container my-5">
+        <div class="d-flex justify-content-between align-items-end mb-4">
+            <div>
+                <h2 class="fw-bold display-6 mb-1" style="color: var(--text-main);">أحدث العيادات</h2>
+                <p class="mb-0 small" style="color: var(--text-muted);">آخر العيادات والمراكز المنضمة إلى منصة صحتك دوما</p>
+            </div>
+            <a href="pages/centers.html" class="btn rounded-pill px-4 py-2 border-0 fw-semibold d-flex align-items-center gap-2 btn-hover-effect" style="background-color: rgba(16, 185, 129, 0.1); color: var(--primary-green);">
+                <span>عرض كل العيادات</span>
+                <i class="fa-solid fa-chevron-left small"></i>
+            </a>
+        </div>
+
+        <div class="row g-4">
+            <!-- كرت 1 -->
+            <div class="col-12 col-sm-6 col-lg-3">
+                <div class="card border-0 rounded-4 p-4 text-center h-100 position-relative transition-all" style="background-color: var(--bg-card); border: 1px solid var(--border-color) !important; box-shadow: var(--shadow);">
+                    <button class="btn btn-sm rounded-circle position-absolute top-0 end-0 m-3 border-0 bg-light text-muted btn-heart-hover" title="حفظ العيادة">
+                        <i class="fa-regular fa-heart"></i>
+                    </button>
+                    <div class="rounded-circle d-inline-flex align-items-center justify-content-center mx-auto mb-3" style="width: 70px; height: 70px; background-color: rgba(16, 185, 129, 0.1); color: var(--primary-green);">
+                        <i class="fa-solid fa-user-doctor fs-3"></i>
+                    </div>
+                    <span class="badge rounded-pill fw-normal px-3 py-1 mb-2 mx-auto" style="background-color: rgba(14, 165, 233, 0.1); color: var(--secondary-blue);">عيادة خاصة</span>
+                    <h5 class="fw-bold mb-2" style="color: var(--text-main);">عيادة د. سامر الحافظ</h5>
+                    <p class="small mb-3" style="color: var(--text-muted);">الكورنيش، قرب صيدلية الشفاء</p>
+                    <a href="pages/book-appointment.html" class="btn w-100 rounded-pill fw-semibold py-2 mt-auto border-0 text-white btn-hover-effect" style="background-color: var(--primary-green);">
+                        حجز موعد
+                    </a>
+                </div>
+            </div>
+
+            <!-- كرت 2 -->
+            <div class="col-12 col-sm-6 col-lg-3">
+                <div class="card border-0 rounded-4 p-4 text-center h-100 position-relative transition-all" style="background-color: var(--bg-card); border: 1px solid var(--border-color) !important; box-shadow: var(--shadow);">
+                    <button class="btn btn-sm rounded-circle position-absolute top-0 end-0 m-3 border-0 bg-light text-muted btn-heart-hover" title="حفظ العيادة">
+                        <i class="fa-regular fa-heart"></i>
+                    </button>
+                    <div class="rounded-circle d-inline-flex align-items-center justify-content-center mx-auto mb-3" style="width: 70px; height: 70px; background-color: rgba(14, 165, 233, 0.1); color: var(--secondary-blue);">
+                        <i class="fa-solid fa-hospital-user fs-3"></i>
+                    </div>
+                    <span class="badge rounded-pill fw-normal px-3 py-1 mb-2 mx-auto" style="background-color: rgba(16, 185, 129, 0.1); color: var(--primary-green);">مركز طبي</span>
+                    <h5 class="fw-bold mb-2" style="color: var(--text-main);">مركز ابن سينا الطبي</h5>
+                    <p class="small mb-3" style="color: var(--text-muted);">شارع الحجار، بناء المركز الطبي</p>
+                    <a href="pages/book-appointment.html" class="btn w-100 rounded-pill fw-semibold py-2 mt-auto border-0 text-white btn-hover-effect" style="background-color: var(--primary-green);">
+                        حجز موعد
+                    </a>
+                </div>
+            </div>
+            <!-- كرت 2 -->
+           <!-- كرت 3: مشفى دوما الوطني -->
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="card border-0 rounded-4 p-4 text-center h-100 position-relative transition-all" 
+                 style="background-color: var(--bg-card); border: 1px solid var(--border-color) !important; box-shadow: var(--shadow);">
+                <button class="btn btn-sm rounded-circle position-absolute top-0 end-0 m-3 border-0 bg-light text-muted" title="حفظ العيادة">
+                    <i class="fa-regular fa-heart"></i>
+                </button>
+
+                <div class="rounded-circle d-inline-flex align-items-center justify-content-center mx-auto mb-3" 
+                     style="width: 70px; height: 70px; background-color: rgba(16, 185, 129, 0.1); color: var(--primary-green);">
+                    <i class="fa-solid fa-square-h fs-3"></i>
+                </div>
+
+                <span class="badge rounded-pill fw-normal px-3 py-1 mb-2 mx-auto" style="background-color: #FEF3C7; color: #D97706;">مشفى عام</span>
+
+                <h5 class="fw-bold mb-2" style="color: var(--text-main);">مشفى دوما الوطني</h5>
+                <p class="small mb-3" style="color: var(--text-muted);">وسط المدينة، بجانب الساحة</p>
+
+                <a href="pages/book-appointment.html" class="btn w-100 rounded-pill fw-semibold py-2 mt-auto border-0 text-white" style="background-color: var(--primary-green);">
+                    حجز موعد
+                </a>
+            </div>
+        </div>
+            <!-- كرت 3 -->
+            <div class="col-12 col-sm-6 col-lg-3">
+            <div class="card border-0 rounded-4 p-4 text-center h-100 position-relative transition-all" 
+                 style="background-color: var(--bg-card); border: 1px solid var(--border-color) !important; box-shadow: var(--shadow);">
+                <button class="btn btn-sm rounded-circle position-absolute top-0 end-0 m-3 border-0 bg-light text-muted" title="حفظ العيادة">
+                    <i class="fa-regular fa-heart"></i>
+                </button>
+
+                <div class="rounded-circle d-inline-flex align-items-center justify-content-center mx-auto mb-3" 
+                     style="width: 70px; height: 70px; background-color: rgba(14, 165, 233, 0.1); color: var(--secondary-blue);">
+                    <i class="fa-solid fa-tooth fs-3"></i>
+                </div>
+
+                <span class="badge rounded-pill fw-normal px-3 py-1 mb-2 mx-auto" style="background-color: #E0F2FE; color: var(--secondary-blue);">عيادة أسنان</span>
+
+                <h5 class="fw-bold mb-2" style="color: var(--text-main);">عيادة د. وائل الشيخ</h5>
+                <p class="small mb-3" style="color: var(--text-muted);">شارع الجلاء، طابق 2</p>
+
+                <a href="pages/book-appointment.html" class="btn w-100 rounded-pill fw-semibold py-2 mt-auto border-0 text-white" style="background-color: var(--primary-green);">
+                    حجز موعد
+                </a>
+                </div>
+        </div>
+    </section>
+
+
+<!-- قسم عن المنصة (بخلفية خضراء داكنة هادئة ومتزنة في آخر الصفحة الرئيسية) -->
+
+<section class="container-fluid py-5 mt-5 about-section-gradient text-white">
+    <div class="container py-4">
+        
+        <!-- عنوان القسم -->
+        <div class="text-center mb-5">
+            <span class="badge px-3 py-2 rounded-pill fw-semibold mb-2" style="background-color: rgba(255, 255, 255, 0.2); color: #ffffff;">عن المنصة</span>
+            <h2 class="fw-bold display-6 text-white">رؤيتنا لرعاية صحية أسهل في دوما</h2>
+            <p class="mx-auto mt-2 text-white opacity-90" style="max-width: 700px;">
+                منصة "صحتك دوما" هي مبادرة رقمية غير ربحية تهدف لتسهيل وصول الأهالي والمرضى في مدينة دوما إلى الرعاية الطبية، الأدوية، والمواعيد بكفاءة وشفافية عالية.
+            </p>
+        </div>
+
+        <!-- الكروت الثلاثة (رسالتنا، قيمنا، الابتكار الذكي) -->
+        <div class="row g-4 justify-content-center">
+            
+            <!-- كرت 1: رسالتنا -->
+            <div class="col-md-4">
+                <div class="card about-vision-card border-0 rounded-4 p-4 text-center h-100 shadow-sm">
+                    <div class="icon-circle rounded-circle d-inline-flex align-items-center justify-content-center mx-auto mb-3" style="width: 65px; height: 65px; background-color: #ffffff; color: #01433a;">
+                        <i class="fa-solid fa-bullseye fs-4"></i>
+                    </div>
+                    <h5 class="fw-bold text-white mb-2">رسالتنا</h5>
+                    <p class="small text-white opacity-90 mb-0">ربط المرضى بالعيادة المناسبة بأقل وقت وجهد، وتوفير استشارات دوائية سريعة تلبي احتياجات المجتمع المحلي.</p>
+                </div>
+            </div>
+
+            <!-- كرت 2: قيمنا -->
+            <div class="col-md-4">
+                <div class="card about-vision-card border-0 rounded-4 p-4 text-center h-100 shadow-sm">
+                    <div class="icon-circle rounded-circle d-inline-flex align-items-center justify-content-center mx-auto mb-3" style="width: 65px; height: 65px; background-color: #ffffff; color: #01433a;">
+                        <i class="fa-solid fa-hand-holding-heart fs-4"></i>
+                    </div>
+                    <h5 class="fw-bold text-white mb-2">قيمنا</h5>
+                    <p class="small text-white opacity-90 mb-0">الخصوصية التامة للمريض، دقة المعلومات الطبية، والتعاون الفعال مع المراكز الخيرية والخاصة في المنطقة.</p>
+                </div>
+            </div>
+
+            <!-- كرت 3: الابتكار الذكي -->
+            <div class="col-md-4">
+                <div class="card about-vision-card border-0 rounded-4 p-4 text-center h-100 shadow-sm">
+                    <div class="icon-circle rounded-circle d-inline-flex align-items-center justify-content-center mx-auto mb-3" style="width: 65px; height: 65px; background-color: #ffffff; color: #01433a;">
+                        <i class="fa-solid fa-wand-magic-sparkles fs-4"></i>
+                    </div>
+                    <h5 class="fw-bold text-white mb-2">الابتكار الذكي</h5>
+                    <p class="small text-white opacity-90 mb-0">تسخير تقنيات البحث والتحليل الذكي لإرشاد الزائر للعيادة والأدوية الأنسب دون تعقيد.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- قسم خطوات الحجز البسيطة -->
+<section class="container my-5 py-4">
+    <div class="text-center mb-5">
+        <h2 class="fw-bold display-6" style="color: var(--text-main);">ثلاث خطوات فقط</h2>
+        <p style="color: var(--text-muted);">طريقة سهلة وسريعة لإتمام موعدك الطبي بدوما</p>
+    </div>
+
+    <div class="row g-4 justify-content-center">
+        <!-- الخطوة 1 -->
+        <div class="col-md-4">
+            <div class="card border-0 shadow-sm rounded-4 p-4 text-center h-100 position-relative hover-card" style="background-color: var(--bg-card);">
+                <div class="step-number rounded-circle d-inline-flex align-items-center justify-content-center mx-auto mb-3 text-white fw-bold shadow-sm" 
+                     style="width: 50px; height: 50px; font-size: 1.2rem; background-color: var(--primary-green);">
+                    1
+                </div>
+                <h5 class="fw-bold mb-2" style="color: var(--text-main);">اختر العيادة</h5>
+                <p class="small mb-0" style="color: var(--text-muted);">تصفح حسب التخصص، واطلع على أطباء العيادة وأوقاتها المتاحة.</p>
+            </div>
+        </div>
+
+        <!-- الخطوة 2 -->
+        <div class="col-md-4">
+            <div class="card border-0 shadow-sm rounded-4 p-4 text-center h-100 position-relative hover-card" style="background-color: var(--bg-card);">
+                <div class="step-number rounded-circle d-inline-flex align-items-center justify-content-center mx-auto mb-3 text-white fw-bold shadow-sm" 
+                     style="width: 50px; height: 50px; font-size: 1.2rem; background-color: var(--primary-green);">
+                    2
+                </div>
+                <h5 class="fw-bold mb-2" style="color: var(--text-main);">اختر الوقت</h5>
+                <p class="small mb-0" style="color: var(--text-muted);">اطلع على الأوقات المتاحة فعلياً واسترشد بما يناسبك.</p>
+            </div>
+        </div>
+
+        <!-- الخطوة 3 -->
+        <div class="col-md-4">
+            <div class="card border-0 shadow-sm rounded-4 p-4 text-center h-100 position-relative hover-card" style="background-color: var(--bg-card);">
+                <div class="step-number rounded-circle d-inline-flex align-items-center justify-content-center mx-auto mb-3 text-white fw-bold shadow-sm" 
+                     style="width: 50px; height: 50px; font-size: 1.2rem; background-color: var(--primary-green);">
+                    3
+                </div>
+                <h5 class="fw-bold mb-2" style="color: var(--text-main);">أرسل طلب الحجز</h5>
+                <p class="small mb-0" style="color: var(--text-muted);">سجل برقم جوالك وأرسل طلب حجزك فوراً لتؤكده العيادة.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==========================================
+     قسم: لماذا منصة صحتك؟
+     ========================================== -->
+<section class="container my-5 py-4">
+    <div class="text-center mb-5">
+        <span class="badge px-3 py-2 rounded-pill fw-semibold mb-2" style="background-color: rgba(1, 67, 58, 0.1); color: var(--primary-green);">مميزات المنصة</span>
+        <h2 class="fw-bold display-6" style="color: var(--text-main);">لماذا "صحتك دوما"؟</h2>
+        <p style="color: var(--text-muted);" class="mx-auto" style="max-width: 600px;">حلول رقمية متكاملة تهدف للارتقاء بالخدمات الطبية المتاحة في مدينتنا</p>
+    </div>
+
+    <div class="row g-4">
+        <!-- ميزة 1 -->
+        <div class="col-md-6 col-lg-3">
+            <div class="card why-us-card h-100 p-4 border-0 shadow-sm rounded-4 text-center">
+                <div class="feature-icon mb-3 mx-auto d-flex align-items-center justify-content-center rounded-circle">
+                    <i class="fa-solid fa-clock-rotate-left fs-4"></i>
+                </div>
+                <h5 class="fw-bold mb-2" style="color: var(--text-main);">تحديث فورى للمواعيد</h5>
+                <p class="small mb-0" style="color: var(--text-muted);">معرفة الأوقات المتاحة لدى كل طبيب أو مركز طبي فورياً ودون انتظار.</p>
+            </div>
+        </div>
+
+        <!-- ميزة 2 -->
+        <div class="col-md-6 col-lg-3">
+            <div class="card why-us-card h-100 p-4 border-0 shadow-sm rounded-4 text-center">
+                <div class="feature-icon mb-3 mx-auto d-flex align-items-center justify-content-center rounded-circle">
+                    <i class="fa-solid fa-pills fs-4"></i>
+                </div>
+                <h5 class="fw-bold mb-2" style="color: var(--text-main);">البحث عن الأدوية</h5>
+                <p class="small mb-0" style="color: var(--text-muted);">الاستعلام عن البدائل والأدوية الشحيحة بسهولة وتوجيهك للصيدلية المناسبة.</p>
+            </div>
+        </div>
+
+        <!-- ميزة 3 -->
+        <div class="col-md-6 col-lg-3">
+            <div class="card why-us-card h-100 p-4 border-0 shadow-sm rounded-4 text-center">
+                <div class="feature-icon mb-3 mx-auto d-flex align-items-center justify-content-center rounded-circle">
+                    <i class="fa-solid fa-user-shield fs-4"></i>
+                </div>
+                <h5 class="fw-bold mb-2" style="color: var(--text-main);">خصوصية وأمان</h5>
+                <p class="small mb-0" style="color: var(--text-muted);">الحفاظ على بيانات المرضى والسجلات الطبية بأعلى درجات السرية والأمان.</p>
+            </div>
+        </div>
+
+        <!-- ميزة 4 -->
+        <div class="col-md-6 col-lg-3">
+            <div class="card why-us-card h-100 p-4 border-0 shadow-sm rounded-4 text-center">
+                <div class="feature-icon mb-3 mx-auto d-flex align-items-center justify-content-center rounded-circle">
+                    <i class="fa-solid fa-heart-pulse fs-4"></i>
+                </div>
+                <h5 class="fw-bold mb-2" style="color: var(--text-main);">خدمة مجانية 100%</h5>
+                <p class="small mb-0" style="color: var(--text-muted);">مبادرة مجتمعية جليلة تهدف لخدمة كافة أهالي وسكان دوما مجاناً.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==========================================
+     قسم: الأسئلة الشائعة (أسئلة يسألها المرضى)
+     ========================================== -->
+<section class="container my-5 py-4">
+    <div class="text-center mb-5">
+        <span class="badge px-3 py-2 rounded-pill fw-semibold mb-2" style="background-color: rgba(1, 67, 58, 0.1); color: var(--primary-green);">الاستفسارات الشائعة</span>
+        <h2 class="fw-bold display-6" style="color: var(--text-main);">أسئلة يسألها المرضى</h2>
+        <p style="color: var(--text-muted);">إجابات مباشرة لأكثر الأسئلة تكراراً حول الحجز والاستخدام</p>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-lg-9">
+            <div class="accordion custom-faq-accordion" id="faqAccordion">
+                
+                <!-- سؤال 1 -->
+                <div class="accordion-item mb-3 border-0 rounded-4 overflow-hidden shadow-sm">
+                    <h2 class="accordion-header" id="faqHeadingOne">
+                        <button class="accordion-button fw-bold collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqOne" aria-expanded="false" aria-controls="faqOne">
+                            هل الخدمة مجانية أم يتطلب حجز الموعد رسوماً إضافية؟
+                        </button>
+                    </h2>
+                    <div id="faqOne" class="accordion-collapse collapse" aria-labelledby="faqHeadingOne" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body opacity-90">
+                            منصة "صحتك دوما" هي مبادرة رقمية غير ربحية مجانية بالكامل. لا تفرض المنصة أي رسوم إضافية على حجز المواعيد أو الاستعلام، ودفع كشفية الطبيب يتم مباشر في العيادة.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- سؤال 2 -->
+                <div class="accordion-item mb-3 border-0 rounded-4 overflow-hidden shadow-sm">
+                    <h2 class="accordion-header" id="faqHeadingTwo">
+                        <button class="accordion-button fw-bold collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqTwo" aria-expanded="false" aria-controls="faqTwo">
+                            كيف يمكنني إلغاء أو تعديل موعدي بعد الحجز؟
+                        </button>
+                    </h2>
+                    <div id="faqTwo" class="accordion-collapse collapse" aria-labelledby="faqHeadingTwo" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body opacity-90">
+                            يمكنك إدارة مواعيدك بسهولة عبر الدخول لقسم "مواعيدي" برقم جوالك، حيث يتوفر خيار لإلغاء الموعد أو طلب تغيير التوقيت مباشرة لتنبيه المركز الطبي.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- سؤال 3 -->
+                <div class="accordion-item mb-3 border-0 rounded-4 overflow-hidden shadow-sm">
+                    <h2 class="accordion-header" id="faqHeadingThree">
+                        <button class="accordion-button fw-bold collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqThree" aria-expanded="false" aria-controls="faqThree">
+                            هل يمكنني البحث عن دواء غير متوفر في الصيدليات القريبة؟
+                        </button>
+                    </h2>
+                    <div id="faqThree" class="accordion-collapse collapse" aria-labelledby="faqHeadingThree" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body opacity-90">
+                            نعم، يتيح لك قسم الأدوية إمكانية البحث عن اسم الدواء أو تركيبه العلمي لمعرفة الصيدليات المتاح بها داخل دوما، أو إيجاد البدائل المعتمدة.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- سؤال 4 -->
+                <div class="accordion-item mb-3 border-0 rounded-4 overflow-hidden shadow-sm">
+                    <h2 class="accordion-header" id="faqHeadingFour">
+                        <button class="accordion-button fw-bold collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqFour" aria-expanded="false" aria-controls="faqFour">
+                            هل أحتاج لإنشاء حساب معقد لاستخدام المنصة؟
+                        </button>
+                    </h2>
+                    <div id="faqFour" class="accordion-collapse collapse" aria-labelledby="faqHeadingFour" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body opacity-90">
+                            لا، حرصنا على أن تكون العملية سريعة جداً. يكفي إدخال اسمك ورقم هاتفك لتأكيد حجزك واستلام إشعار التأكيد دون الحاجة بكلمات سر معقدة.
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<div id="footer-placeholder"></div>
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+document.addEventListener("DOMContentLoaded", function () {
+        // جلب الناف بار للصفحات الفرعية
+        fetch("../components/navbar.html")
+            .then(res => res.text())
+            .then(data => {
+                document.getElementById("navbar-placeholder").innerHTML = data;
+            })
+            .catch(err => console.error("Error loading navbar:", err));
+
+        // جلب الفوتر للصفحات الفرعية
+        fetch("../components/footer.html")
+            .then(res => res.text())
+            .then(data => {
+                document.getElementById("footer-placeholder").innerHTML = data;
+            })
+            .catch(err => console.error("Error loading footer:", err));
+    });
+</script>
+
+<!-- زر العائم لينقل المستخدم إلى صفحة المساعد الذكي -->
+<div class="floating-support-container position-fixed bottom-0 end-0 p-4" style="z-index: 1050;">
+    <a href="pages/smart-search.html" class="btn btn-primary-custom rounded-circle shadow-lg d-flex align-items-center justify-content-center floating-btn animate-bounce text-decoration-none" title="مساعد صحتك الذكي" style="width: 60px; height: 60px;">
+        <i class="fa-solid fa-wand-magic-sparkles fs-4 text-white"></i>
+    </a>
+</div>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom Main JS -->
+    <script src="assets/js/main.js"></script>
+<!-- نافذة تسجيل الدخول (خارج الـ Header تماماً لمنع التعليق) -->
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content bg-card-custom border shadow-lg rounded-4">
+            
+            <div class="modal-header border-bottom-0 pb-0">
+                <h5 class="modal-title fw-bold text-main-custom" id="loginModalLabel">
+                    <i class="fa-solid fa-user-lock text-primary-custom ms-2"></i>تسجيل الدخول إلى منصة صحتك
+                </h5>
+                <button type="button" class="btn-close shadow-none" data-bs-dismiss="modal" aria-label="إغلاق"></button>
+            </div>
+
+            <div class="modal-body p-4 text-start">
+                <form id="loginForm">
+                    <div class="mb-3">
+                        <label for="loginIdentifier" class="form-label small fw-semibold text-main-custom">رقم الهاتف أو البريد الإلكتروني</label>
+                        <input type="text" class="form-control rounded-3" id="loginIdentifier" placeholder="أدخل رقم الهاتف أو البريد" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="loginPassword" class="form-label small fw-semibold text-main-custom">كلمة المرور</label>
+                        <input type="password" class="form-control rounded-3" id="loginPassword" placeholder="••••••••" required>
+                    </div>
+
+                    <div class="d-grid mt-4">
+                        <button type="submit" class="btn btn-primary-custom py-2 rounded-pill fw-semibold">
+                            تسجيل الدخول
+                        </button>
+                    </div>
+
+                    <div class="text-center mt-3">
+                        <small class="text-muted">ليس لديك حساب؟ <a href="#" class="text-primary-custom text-decoration-none fw-semibold">سجل الآن</a></small>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+</body>
+
+</html>

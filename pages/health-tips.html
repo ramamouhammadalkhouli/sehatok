@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>التوعية والإرشادات الطبية - منصة دوما الطبية</title>
+    <!-- Bootstrap RTL + FontAwesome + Main CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&display=swap" rel="stylesheet"></head>
+
+</head>
+<body class="bg-card-custom">
+<br>
+    <!-- مكان استدعاء الناف بار -->
+    <div id="navbar-placeholder"></div>
+
+    <!-- المحتوى الرئيسي لصفحة التوعية -->
+    <main class="container py-5">
+        
+        <!-- 1. الهيدر وعنوان الصفحة -->
+        <div class="row justify-content-center text-center mb-5">
+            <div class="col-lg-8">
+                <span class="badge bg-success-subtle text-success px-3 py-2 rounded-pill fw-semibold mb-3">
+                    <i class="fa-solid fa-heart-pulse me-1"></i> صحتك تهمنا
+                </span>
+                <h1 class="fw-bold text-main-custom mb-3">دليل التوعية والإرشادات الطبية</h1>
+                <p class="text-muted lead fs-6">مقالات وإرشادات صحية موثوقة ومبسطة للوقاية والتثقيف الصحي اليومي لأهالي دوما.</p>
+                
+                <!-- شريط بحث سريع في المقالات -->
+                <div class="input-group input-group-lg border rounded-pill shadow-sm overflow-hidden bg-body-tertiary mt-4">
+                    <span class="input-group-text bg-transparent border-0 pe-4"><i class="fa-solid fa-magnifying-glass text-muted"></i></span>
+                    <input type="text" id="tipSearchInput" class="form-control bg-transparent border-0 shadow-none fs-6" placeholder="ابحث عن موضوع (مثل: السكري، الإسعافات، الحروق...)" onkeyup="filterTips()">
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. أزرار الفلترة حسب التصنيف -->
+        <div class="d-flex justify-content-center flex-wrap gap-2 mb-4">
+            <button class="btn btn-primary-custom rounded-pill px-4 filter-btn active" onclick="filterCategory('all', this)">الكل</button>
+            <button class="btn btn-outline-secondary rounded-pill px-4 filter-btn" onclick="filterCategory('first-aid', this)">🩹 الإسعافات الأولية</button>
+            <button class="btn btn-outline-secondary rounded-pill px-4 filter-btn" onclick="filterCategory('chronic', this)">🩺 الأمراض المزمنة</button>
+            <button class="btn btn-outline-secondary rounded-pill px-4 filter-btn" onclick="filterCategory('pediatrics', this)">🧸 صحة الطفل</button>
+        </div>
+
+        <!-- 3. شبكة المقالات والنصائح الطبية (Cards Grid) -->
+        <div class="row g-4" id="tipsGrid">
+            
+            <!-- مقال 1: الإسعافات الأولية للحروق -->
+            <div class="col-md-6 col-lg-4 tip-card" data-category="first-aid">
+                <div class="card bg-body-tertiary border-0 shadow-sm rounded-4 h-100 overflow-hidden hover-card">
+                    <div class="card-body p-4">
+                        <span class="badge bg-danger-subtle text-danger rounded-pill px-3 py-1 mb-3 fw-semibold">إسعافات أولية</span>
+                        <h5 class="fw-bold text-main-custom mb-2">كيف تتصرف فوراً عند حدوث حرق من الدرجة الأولى؟</h5>
+                        <p class="text-muted small mb-3">خطوات بسيطة لتخفيف الألم ومنع تشكل الفقاعات، وتجنب الأخطاء الشائعة كاستخدام معجون الأسنان.</p>
+                        <hr class="opacity-25">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="text-muted small"><i class="fa-regular fa-clock me-1"></i> قراءة 2 دقيقة</span>
+                            <button class="btn btn-link text-primary-custom p-0 text-decoration-none fw-semibold small" onclick="openTipModal('حروق')">اقرأ المزيد <i class="fa-solid fa-arrow-left ms-1"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- مقال 2: التعامل مع السكري -->
+            <div class="col-md-6 col-lg-4 tip-card" data-category="chronic">
+                <div class="card bg-body-tertiary border-0 shadow-sm rounded-4 h-100 overflow-hidden hover-card">
+                    <div class="card-body p-4">
+                        <span class="badge bg-primary-subtle text-primary-custom rounded-pill px-3 py-1 mb-3 fw-semibold">أمراض مزمنة</span>
+                        <h5 class="fw-bold text-main-custom mb-2">نصائح أساسية للسيطرة على مستوى السكر في الدم</h5>
+                        <p class="text-muted small mb-3">إرشادات حول التغذية المتوازنة ومواعيد فحص السكر اليومي للوقاية من الهبوط المفاجئ.</p>
+                        <hr class="opacity-25">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="text-muted small"><i class="fa-regular fa-clock me-1"></i> قراءة 3 دقائق</span>
+                            <button class="btn btn-link text-primary-custom p-0 text-decoration-none fw-semibold small" onclick="openTipModal('سكري')">اقرأ المزيد <i class="fa-solid fa-arrow-left ms-1"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- مقال 3: ارتفاع الحرارة عند الأطفال -->
+            <div class="col-md-6 col-lg-4 tip-card" data-category="pediatrics">
+                <div class="card bg-body-tertiary border-0 shadow-sm rounded-4 h-100 overflow-hidden hover-card">
+                    <div class="card-body p-4">
+                        <span class="badge bg-warning-subtle text-warning-emphasis rounded-pill px-3 py-1 mb-3 fw-semibold">صحة الطفل</span>
+                        <h5 class="fw-bold text-main-custom mb-2">الطريقة الصحيحة لخفض حرارة الطفل العالية</h5>
+                        <p class="text-muted small mb-3">متى نستخدم الكمادات الفاترة، ما هي الجرعة المناسبة لخفض الحرارة، ومتى يجب زيارة الطبيب؟</p>
+                        <hr class="opacity-25">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="text-muted small"><i class="fa-regular fa-clock me-1"></i> قراءة 3 دقائق</span>
+                            <button class="btn btn-link text-primary-custom p-0 text-decoration-none fw-semibold small" onclick="openTipModal('طفل')">اقرأ المزيد <i class="fa-solid fa-arrow-left ms-1"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- النافذة المنبثقة لقراءة النصيحة كاملة (Modal) -->
+    <div class="modal fade" id="tipModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content bg-card-custom border-0 shadow-lg rounded-4">
+                <div class="modal-header border-bottom">
+                    <h5 class="modal-title fw-bold text-main-custom" id="tipModalTitle">تفاصيل الإرشاد الطبي</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4 text-main-custom" id="tipModalBody">
+                    <!-- يتم تعبئة المحتوى ديناميكياً -->
+                </div>
+                <div class="modal-footer border-top">
+                    <button type="button" class="btn btn-secondary rounded-pill px-4" data-bs-dismiss="modal">إغلاق</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- السكربتات -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/js/main.js"></script>
+    <script>
+        // دالة تصفية النصائح حسب التصنيف
+        function filterCategory(cat, btn) {
+            document.querySelectorAll('.filter-btn').forEach(b => {
+                b.classList.remove('active', 'btn-primary-custom');
+                b.classList.add('btn-outline-secondary');
+            });
+            btn.classList.add('active', 'btn-primary-custom');
+            btn.classList.remove('btn-outline-secondary');
+
+            const cards = document.querySelectorAll('.tip-card');
+            cards.forEach(card => {
+                if (cat === 'all' || card.getAttribute('data-category') === cat) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // البحث الفوري في النصائح
+        function filterTips() {
+            const query = document.getElementById('tipSearchInput').value.toLowerCase();
+            const cards = document.querySelectorAll('.tip-card');
+            cards.forEach(card => {
+                const text = card.innerText.toLowerCase();
+                if (text.includes(query)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // فتح modal تفاصيل الإرشاد
+        function openTipModal(type) {
+            const modalTitle = document.getElementById('tipModalTitle');
+            const modalBody = document.getElementById('tipModalBody');
+            
+            if (type === 'حروق') {
+                modalTitle.innerText = "الإسعاف الأولية للحروق البسيطة";
+                modalBody.innerHTML = `
+                    <ol class="lh-lg">
+                        <li>ضع الموضع المصاب فوراً تحت ماء صنبور فاتر (ليس بارداً جداً) لمدة 10 إلى 15 دقيقة.</li>
+                        <li>تجنب وضع الثلج المباشر أو المعجون أو الزيوت.</li>
+                        <li>غطي الحرق بضمادة معقمة وغير لاصقة.</li>
+                        <li>في حال وجود فقاعات، لا تقم بفقعها لتجنب الالتهاب.</li>
+                    </ol>
+                `;
+            } else {
+                modalTitle.innerText = "تفاصيل الإرشاد الطبي";
+                modalBody.innerText = "احرص دائماً على استشارة الطبيب المختص في العيادات المعتمدة بدوما لتقييم الحالة بدقة.";
+            }
+
+            const modal = new bootstrap.Modal(document.getElementById('tipModal'));
+            modal.show();
+        }
+
+        // جلب الناف بار تلقائياً
+        fetch('includes/navbar.html')
+            .then(res => res.text())
+            .then(data => {
+                document.getElementById('navbar-placeholder').innerHTML = data;
+                if(typeof initGlobalThemeToggle === 'function') initGlobalThemeToggle();
+            });
+    </script>
+</body>
+</html>

@@ -1,0 +1,529 @@
+/* ==========================================
+   1. متغيرات الألوان (CSS Variables)
+   ========================================== */
+:root {
+    --bg-main: #F4F7F5;
+    --bg-card: #FFFFFF;
+    --primary-green: #01433a;       /* الأخضر الغامق الجديد الأساسي */
+    --primary-hover: #022c26;       /* درجة أغمق للـ Hover */
+    --secondary-accent: #cdeb69;    /* اللون الثانوي الأصفر/الأخضر الفاتح الجديد */
+    --logo-color: #01433a;
+    --text-main: #0F172A;
+    --text-muted: #64748B;
+    --secondary-blue: #0EA5E9;
+    --border-color: #E2E8F0;
+    --accent-star: #F59E0B;
+    --shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+/* الوضع الليلي (Dark Mode) */
+[data-theme="dark"] {
+    --bg-main: #0B1412;         /* خلفية الصفحة الداكنة */
+    --bg-card: #13221F;         /* خلفية الكروت والعناصر */
+    --primary-green: #026658;   /* درجة أخضر متناسقة وواضحة للوضع الليلي */
+    --primary-hover: #01433a;
+    --secondary-accent: #cdeb69;/* اللون الثانوي يبقى ساطعاً وجميلاً بالوضع الليلي */
+    --logo-color: #cdeb69;
+    --text-main: #F8FAFC;       /* النص الأساسي أبيض ناصع */
+    --text-muted: #94A3B8;      /* النص المكتوم رمادي فاتح وواضح */
+    --border-color: #334155;    /* لون الحدود الفاصلة */
+    --secondary-blue: #38BDF8;
+    --accent-star: #F59E0B;
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] .text-muted,
+[data-theme="dark"] .text-secondary {
+  color: var(--text-muted) !important;
+}
+
+/* ==========================================
+   2. التنسيقات الأساسية والعامة
+   ========================================== */
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: 'Almarai', system-ui, -apple-system, "Segoe UI", Roboto, sans-serif !important;
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  padding-top: 75px !important; /* لضمان عدم اختفاء المحتوى خلف الناف بار الثابت */
+}
+
+.bg-card-custom {
+  background-color: var(--bg-card) !important;
+  border-color: var(--border-color) !important;
+}
+
+.bg-main-custom {
+  background-color: var(--bg-main) !important;
+  border-color: var(--border-color) !important;
+}
+
+.text-main-custom {
+  color: var(--text-main) !important;
+}
+
+.text-primary-custom {
+  color: var(--primary-green) !important;
+}
+
+/* ==========================================
+   3. الهيدر والناف بار الثابت (بدون تدوير - لون غامق #013730)
+   ========================================== */
+.site-header,
+#navbar-placeholder .site-header {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 1050;
+  background-color: #013730 !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.site-header .navbar-brand {
+  color: #F8FAFC !important;
+  font-weight: 700;
+}
+
+.site-header .navbar-nav .nav-link {
+  color: #F8FAFC !important;
+  font-weight: 500;
+  border-radius: 50rem;
+  transition: all 0.2s ease;
+}
+
+.site-header .navbar-nav .nav-link:hover,
+.site-header .navbar-nav .nav-link.active {
+  color: var(--secondary-accent) !important;
+  background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.site-header .logo-icon,
+.site-header .logo-box {
+  color: var(--secondary-accent) !important;
+  background-color: var(--primary-green);
+}
+
+.top-bar {
+  background-color: var(--bg-card);
+  font-size: 0.85rem;
+  border-bottom: 1px solid var(--border-color) !important;
+}
+
+/* ==========================================
+   4. تنسيقات الكروت (Cards & Sections)
+   ========================================== */
+.card,
+.center-card,
+.spec-card,
+.vision-card {
+  background-color: var(--bg-card) !important;
+  border: 1px solid var(--border-color) !important;
+  color: var(--text-main) !important;
+  border-radius: 1rem;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+              box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+              border-color 0.3s ease;
+}
+
+.card h1, .card h2, .card h3, .card h4, .card h5, .card h6,
+.card p, .card span, .card li,
+.center-card h1, .center-card h2, .center-card h3, .center-card h4, .center-card h5, .center-card h6,
+.center-card p, .center-card span, .center-card li {
+    color: var(--text-main) !important;
+}
+
+.card .text-muted,
+.center-card .text-muted {
+    color: var(--text-muted) !important;
+}
+
+.transition-all:hover,
+.center-card:hover,
+.spec-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow) !important;
+  border-color: var(--secondary-accent) !important; /* استخدام اللون الثانوي عند الهافر لجمالية بصرية */
+}
+
+.spec-card .icon-box {
+  transition: all 0.35s ease !important;
+}
+
+.spec-card:hover .icon-box {
+  transform: scale(1.15) rotate(-5deg);
+  background-color: var(--secondary-accent) !important;
+  color: var(--primary-green) !important;
+}
+
+.spec-card:hover h6,
+.spec-card:hover .text-main-custom {
+  color: var(--secondary-accent) !important;
+}
+
+/* ==========================================
+   5. الأزرار (Buttons)
+   ========================================== */
+.btn-primary {
+  background-color: var(--primary-green) !important;
+  border-color: var(--primary-green) !important;
+  color: #FFFFFF !important;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-hover) !important;
+  border-color: var(--primary-hover) !important;
+}
+
+.btn-hover-effect {
+  transition: all 0.25s ease-in-out !important;
+}
+
+.btn-hover-effect:hover {
+  background-color: var(--primary-hover) !important;
+  transform: scale(1.03);
+  box-shadow: 0 6px 18px rgba(1, 67, 58, 0.25) !important;
+}
+
+.btn-heart-hover:hover {
+  background-color: #FEE2E2 !important;
+  color: #EF4444 !important;
+  transform: scale(1.15) rotate(8deg);
+}
+
+.btn-details-secondary {
+  background-color: rgba(14, 165, 233, 0.1) !important;
+  color: var(--secondary-blue) !important;
+}
+
+.btn-details-secondary:hover {
+  background-color: var(--secondary-blue) !important;
+  color: #ffffff !important;
+}
+
+/* أزرار اختيار الأوقات */
+.btn-check:checked + .btn-outline-success {
+  background-color: var(--primary-green) !important;
+  color: #FFFFFF !important;
+  border-color: var(--primary-green) !important;
+}
+
+.btn-outline-success {
+  border-color: var(--border-color);
+  color: var(--text-main);
+  background-color: var(--bg-main);
+}
+
+.btn-outline-success:hover {
+  background-color: rgba(205, 235, 105, 0.15);
+  color: var(--primary-green);
+  border-color: var(--secondary-accent);
+}
+
+/* ==========================================
+   6. النماذج، التبويبات، والـ Modals
+   ========================================== */
+[data-theme="dark"] select.form-select,
+[data-theme="dark"] input.form-control,
+[data-theme="dark"] textarea.form-control {
+  background-color: var(--bg-card) !important;
+  color: var(--text-main) !important;
+  border-color: var(--border-color) !important;
+}
+
+[data-theme="dark"] select.form-select option {
+  background-color: var(--bg-card) !important;
+  color: var(--text-main) !important;
+}
+
+.modal-backdrop {
+  z-index: 1050 !important;
+}
+
+.modal {
+  z-index: 1060 !important;
+}
+
+.modal-content {
+  background-color: var(--bg-card) !important;
+  color: var(--text-main) !important;
+  border-color: var(--border-color) !important;
+}
+
+.search-tabs .nav-link,
+.filter-tabs .nav-link {
+  color: var(--text-muted);
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  transition: all 0.2s ease;
+}
+
+.search-tabs .nav-link.active,
+.filter-tabs .nav-link.active {
+  background-color: var(--primary-green) !important;
+  color: #FFFFFF !important;
+  border-color: var(--primary-green) !important;
+}
+
+/* ==========================================
+   7. الفوتر الاحترافي (خلفية غامقة بروفيشينال) والزر العائم
+   ========================================== */
+.site-footer {
+  background-color: #013730 !important; /* خلفية غامقة احترافية متناسقة مع الهيدر */
+  color: #F8FAFC !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+  transition: background-color 0.3s ease;
+}
+
+.site-footer p,
+.site-footer span,
+.site-footer li,
+.site-footer .text-muted {
+  color: #CBD5E1 !important; /* نصوص واضحة جداً على الخلفية الغامقة للفوتر */
+}
+
+.footer-link {
+  color: #F8FAFC !important;
+  transition: color 0.2s ease, transform 0.2s ease;
+  display: inline-block;
+}
+
+.footer-link:hover {
+  color: var(--secondary-accent) !important;
+  transform: translateX(-3px);
+}
+
+.social-icon-btn {
+  width: 38px;
+  height: 38px;
+  background-color: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  color: #F8FAFC !important;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+}
+
+.social-icon-btn:hover {
+  background-color: var(--secondary-accent);
+  color: var(--primary-green) !important;
+  border-color: var(--secondary-accent) !important;
+}
+
+.floating-btn {
+  width: 55px;
+  height: 55px;
+  background-color: var(--primary-green) !important;
+  border-color: var(--primary-green) !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 8px 25px rgba(1, 67, 58, 0.4) !important;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  animation: pulse-soft 2s infinite;
+}
+
+.floating-btn:hover {
+  transform: scale(1.1);
+  background-color: var(--primary-hover) !important;
+}
+
+@keyframes pulse-soft {
+  0% {
+    box-shadow: 0 0 0 0 rgba(1, 67, 58, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 15px rgba(1, 67, 58, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(1, 67, 58, 0);
+  }
+}
+
+/* ==========================================
+   8. التجاوب مع الشاشات (Media Queries)
+   ========================================== */
+@media (max-width: 991.98px) {
+  .site-header .navbar-nav {
+    text-align: center;
+    background-color: #013730;
+    padding: 1rem;
+    border-radius: 1rem;
+    margin-top: 0.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+  }
+}
+
+@media (max-width: 575.98px) {
+  body {
+    font-size: 0.9rem;
+  }
+
+  .card {
+    padding: 1.25rem !important;
+  }
+
+  .filter-tabs {
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    padding-bottom: 0.5rem;
+    justify-content: flex-start !important;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .filter-tabs .nav-item {
+    white-space: nowrap;
+  }
+}
+
+
+/* خلفية القسم المتدرجة (أخضر إلى لمسة صفراء دافئة متناسقة) */
+/* خلفية القسم المتدرجة المعدلة بشكل احترافي وفخم */
+.about-section-gradient {
+  background: linear-gradient(135deg, #013730 0%, #01433a 40%, #065f46 80%, #047857 100%);
+}
+/* تنسيق وتأثيرات الكروت داخل القسم */
+.about-vision-card {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  backdrop-filter: blur(8px);
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+/* تأثير الهافر المميز عند مرور الماوس على الكرت */
+.about-vision-card:hover {
+  transform: translateY(-8px);
+  background-color: rgba(255, 255, 255, 0.15) !important;
+  border-color: var(--secondary-accent) !important; /* يتلون الإطار بالأصفر الفاتح */
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* حركة الأيقونة ودائرة الأيقونة عند الهافر */
+.about-vision-card .icon-circle {
+  transition: all 0.35s ease !important;
+}
+
+.about-vision-card:hover .icon-circle {
+  transform: scale(1.1) rotate(-6deg);
+  background-color: var(--secondary-accent) !important; /* تتحول خلفية الأيقونة للأصفر */
+  color: var(--primary-green) !important; /* يتغير لون الأيقونة نفسها للأخضر الغامق */
+  box-shadow: 0 5px 15px rgba(205, 235, 105, 0.4);
+}
+
+
+/* ==========================================
+   تنسيق وتأثير الهافر لكروت الخطوات (Steps Cards)
+   ========================================== */
+
+/* التنسيق الأساسي للكروت */
+.hover-card {
+  border: 1px solid var(--border-color) !important;
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), 
+              box-shadow 0.35s cubic-bezier(0.4, 0, 0.2, 1), 
+              border-color 0.35s ease !important;
+}
+
+/* تأثير الهافر عند مرور الماوس */
+.hover-card:hover {
+  transform: translateY(-10px); /* ارتفاع سلاس للأعلى */
+  border-color: var(--primary-green) !important; /* بروز الإطار بالأخضر الأساسي */
+  box-shadow: 0 15px 30px rgba(1, 67, 58, 0.12) !important; /* ظل خفيف وراقي */
+}
+
+/* حركة دائرة الرقم عند الهافر */
+.hover-card .step-number {
+  transition: all 0.35s ease !important;
+}
+
+.hover-card:hover .step-number {
+  transform: scale(1.15) rotate(5deg); /* تكبير ودوران ناعم للرقم */
+  background-color: var(--secondary-accent) !important; /* تغير لون دائرة الرقم للأصفر الفاتح */
+  color: var(--primary-green) !important; /* لون الرقم بصير أخضر غامق ليكون واضح */
+  box-shadow: 0 6px 15px rgba(205, 235, 105, 0.4) !important;
+}
+
+/* تغير لون العنوان عند الهافر */
+.hover-card:hover h5 {
+  color: var(--primary-green) !important;
+  transition: color 0.3s ease;
+}
+
+
+
+/* ==========================================
+   تنسيقات قسم: لماذا صحتك دوما (Why Us)
+   ========================================== */
+.why-us-card {
+  background-color: var(--bg-card) !important;
+  border: 1px solid var(--border-color) !important;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.why-us-card .feature-icon {
+  width: 60px;
+  height: 60px;
+  background-color: rgba(1, 67, 58, 0.08);
+  color: var(--primary-green);
+  transition: all 0.35s ease !important;
+}
+
+.why-us-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--secondary-accent) !important;
+  box-shadow: 0 12px 25px rgba(1, 67, 58, 0.1) !important;
+}
+
+.why-us-card:hover .feature-icon {
+  background-color: var(--secondary-accent) !important;
+  color: var(--primary-green) !important;
+  transform: scale(1.1) rotate(-5deg);
+}
+
+/* ==========================================
+   تنسيقات قسم: الأسئلة الشائعة (FAQ Accordion)
+   ========================================== */
+.custom-faq-accordion .accordion-item {
+  background-color: var(--bg-card) !important;
+  border: 1px solid var(--border-color) !important;
+}
+
+.custom-faq-accordion .accordion-button {
+  background-color: var(--bg-card) !important;
+  color: var(--text-main) !important;
+  box-shadow: none !important;
+  padding: 1.25rem 1.5rem;
+  font-family: 'Almarai', sans-serif !important;
+  transition: all 0.25s ease;
+}
+
+.custom-faq-accordion .accordion-button:not(.collapsed) {
+  background-color: rgba(1, 67, 58, 0.05) !important;
+  color: var(--primary-green) !important;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.custom-faq-accordion .accordion-button::after {
+  filter: grayscale(100%);
+  transition: transform 0.3s ease;
+}
+
+[data-theme="dark"] .custom-faq-accordion .accordion-button::after {
+  filter: invert(1);
+}
+
+.custom-faq-accordion .accordion-body {
+  background-color: var(--bg-card) !important;
+  color: var(--text-main) !important;
+  padding: 1.25rem 1.5rem;
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+.btn-hover-effect:hover {
+  color: #FFFFFF !important;
+}
+

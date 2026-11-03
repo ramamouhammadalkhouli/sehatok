@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حجز موعد طبي - منصة صحتك دوما</title>
+    
+    <!-- Bootstrap 5 RTL CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.rtl.min.css">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom Style -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        /* تنسيق كاردات الاختيار التفاعلية */
+        .selection-card {
+            cursor: pointer;
+            border: 2px solid var(--border-color) !important;
+            background-color: var(--bg-card);
+            transition: all 0.25s ease;
+        }
+        .selection-card:hover {
+            border-color: var(--primary-green) !important;
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+        .selection-card.selected {
+            border-color: var(--primary-green) !important;
+            background-color: rgba(1, 67, 58, 0.05) !important;
+            box-shadow: 0 0 0 3px rgba(1, 67, 58, 0.15);
+        }
+
+        /* نظام التبديل العرضي السلس بين الخطوات */
+        .wizard-slide {
+            display: none;
+            opacity: 0;
+            transform: translateX(30px);
+            transition: all 0.35s ease-in-out;
+        }
+        .wizard-slide.active-slide {
+            display: block;
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* شريط التتبع العلوي المصغر */
+        .step-pill {
+            font-size: 0.8rem;
+            padding: 6px 14px;
+            border-radius: 50rem;
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            color: var(--text-muted);
+            transition: all 0.3s ease;
+        }
+        .step-pill.active {
+            background-color: var(--primary-green);
+            color: var(--secondary-accent);
+            border-color: var(--primary-green);
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body class="bg-main-custom">
+
+    <div id="navbar-placeholder"></div>
+    <br>
+
+    <!-- محتوى صفحة الحجز التفاعلي العرضي -->
+    <main class="py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-9">
+                    
+                    <!-- عنوان الصفحة -->
+                    <div class="text-center mb-4">
+                        <span class="badge bg-success-subtle text-success px-3 py-1 rounded-pill fw-semibold mb-2">
+                            <i class="fa-solid fa-calendar-check me-1"></i> الحجز السريع التفاعلي
+                        </span>
+                        <h2 class="fw-bold text-main-custom">حجز موعد طبي متسلسل</h2>
+                        <p class="text-muted small">اختر الخيارات المطلوبة لتنتقل بسلاسة أفقياً للخطوة التالية.</p>
+                        
+                        <!-- مؤشر الخطوات الأفقية المصغر -->
+                        <div class="d-flex justify-content-center gap-2 flex-wrap mt-3" id="stepsIndicator">
+                            <div class="step-pill active" id="pill1">1. الطبيب والمعالجة</div>
+                            <div class="step-pill" id="pill2">2. السعر والوقت</div>
+                            <div class="step-pill" id="pill3">3. التذكير والتأكيد</div>
+                        </div>
+                    </div>
+
+                    <!-- كارد الحوكمة الرئيسي -->
+                    <div class="card border-0 shadow-lg rounded-4 p-4 p-md-5 bg-card-custom">
+                        <form action="#" method="POST" id="bookingForm">
+                            
+                            <!-- ==========================================
+                                 الشريحة 1: اختيار الدكتور والمعالجة والأسعار
+                                 ========================================== -->
+                            <div class="wizard-slide active-slide" id="slide1">
+                                <h5 class="fw-bold text-main-custom mb-3">اختر الطبيب المعالج ونوع المعالجة:</h5>
+                                <div class="row g-3 mb-4">
+                                    
+                                    <!-- دكتور 1 -->
+                                    <div class="col-md-6">
+                                        <div class="card selection-card h-100 p-3 rounded-4 text-center" onclick="selectDoctor(this, 'د. رامي الأحمد', 'أطفال ونمو - مركز ابن سينا', '25,000 ل.س')">
+                                            <div class="rounded-circle bg-success-subtle text-success mx-auto d-flex align-items-center justify-content-center mb-2" style="width: 45px; height: 45px;">
+                                                <i class="fa-solid fa-user-doctor"></i>
+                                            </div>
+                                            <h6 class="fw-bold text-main-custom mb-1">د. رامي الأحمد</h6>
+                                            <p class="small text-muted mb-1">أطفال ونمو (مركز ابن سينا)</p>
+                                            <span class="badge bg-light text-success fw-bold">معاينة عامة: 25,000 ل.س</span>
+                                        </div>
+                                    </div>
+
+                                    <!-- دكتور 2 -->
+                                    <div class="col-md-6">
+                                        <div class="card selection-card h-100 p-3 rounded-4 text-center" onclick="selectDoctor(this, 'د. سامر الحافظ', 'أمراض قلبية - عيادة النور', '40,000 ل.س')">
+                                            <div class="rounded-circle bg-success-subtle text-success mx-auto d-flex align-items-center justify-content-center mb-2" style="width: 45px; height: 45px;">
+                                                <i class="fa-solid fa-heart-pulse"></i>
+                                            </div>
+                                            <h6 class="fw-bold text-main-custom mb-1">د. سامر الحافظ</h6>
+                                            <p class="small text-muted mb-1">أمراض قلبية (عيادة النور)</p>
+                                            <span class="badge bg-light text-success fw-bold">تخطيط قلب + معاينة: 40,000 ل.س</span>
+                                        </div>
+                                    </div>
+
+                                    <!-- دكتور 3 -->
+                                    <div class="col-md-6">
+                                        <div class="card selection-card h-100 p-3 rounded-4 text-center" onclick="selectDoctor(this, 'د. مجد الهباب', 'طب الأسنان - شارع الجلاء', '35,000 ل.س')">
+                                            <div class="rounded-circle bg-success-subtle text-success mx-auto d-flex align-items-center justify-content-center mb-2" style="width: 45px; height: 45px;">
+                                                <i class="fa-solid fa-tooth"></i>
+                                            </div>
+                                            <h6 class="fw-bold text-main-custom mb-1">د. مجد الهباب</h6>
+                                            <p class="small text-muted mb-1">طب وجراحة الأسنان</p>
+                                            <span class="badge bg-light text-success fw-bold">حشوة تجميلية: 35,000 ل.س</span>
+                                        </div>
+                                    </div>
+
+                                    <!-- دكتور 4 -->
+                                    <div class="col-md-6">
+                                        <div class="card selection-card h-100 p-3 rounded-4 text-center" onclick="selectDoctor(this, 'د. سارة الحلبي', 'نسائية وتوليد - مشفى دوما', '30,000 ل.س')">
+                                            <div class="rounded-circle bg-success-subtle text-success mx-auto d-flex align-items-center justify-content-center mb-2" style="width: 45px; height: 45px;">
+                                                <i class="fa-solid fa-user-nurse"></i>
+                                            </div>
+                                            <h6 class="fw-bold text-main-custom mb-1">د. سارة الحلبي</h6>
+                                            <p class="small text-muted mb-1">نسائية وتوليد (مشفى دوما)</p>
+                                            <span class="badge bg-light text-success fw-bold">استشارة دورية: 30,000 ل.س</span>
+                                        </div>
+                                    </div>
+
+                                    <!-- دكتور 5 -->
+                                    <div class="col-md-6">
+                                        <div class="card selection-card h-100 p-3 rounded-4 text-center" onclick="selectDoctor(this, 'د. خليل العبدالله', 'جراحة عظمية - مستوصف الرحمة', '15,000 ل.س')">
+                                            <div class="rounded-circle bg-success-subtle text-success mx-auto d-flex align-items-center justify-content-center mb-2" style="width: 45px; height: 45px;">
+                                                <i class="fa-solid fa-bone"></i>
+                                            </div>
+                                            <h6 class="fw-bold text-main-custom mb-1">د. خليل العبدالله</h6>
+                                            <p class="small text-muted mb-1">جراحة عظمية (مستوصف خيري)</p>
+                                            <span class="badge bg-light text-success fw-bold">معاينة + تجبير: 15,000 ل.س</span>
+                                        </div>
+                                    </div>
+
+                                    <!-- دكتور 6 -->
+                                    <div class="col-md-6">
+                                        <div class="card selection-card h-100 p-3 rounded-4 text-center" onclick="selectDoctor(this, 'د. منى الشامي', 'أذن وأنف وحنجرة - المركز الطبي', '20,000 ل.س')">
+                                            <div class="rounded-circle bg-success-subtle text-success mx-auto d-flex align-items-center justify-content-center mb-2" style="width: 45px; height: 45px;">
+                                                <i class="fa-solid fa-ear-deaf"></i>
+                                            </div>
+                                            <h6 class="fw-bold text-main-custom mb-1">د. منى الشامي</h6>
+                                            <p class="small text-muted mb-1">أذنية (المركز الطبي دوما)</p>
+                                            <span class="badge bg-light text-success fw-bold">تنظيف أذن: 20,000 ل.س</span>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <input type="hidden" id="doctorInput">
+                                <input type="hidden" id="treatmentInput">
+                                <input type="hidden" id="feeInput">
+                            </div>
+
+                            <!-- ==========================================
+                                 الشريحة 2: اختيار اليوم والوقت
+                                 ========================================== -->
+                            <div class="wizard-slide" id="slide2">
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <h5 class="fw-bold text-main-custom m-0">اختر السعر والتوقيت المناسب:</h5>
+                                    <button type="button" class="btn btn-sm btn-outline-secondary rounded-pill px-3" onclick="goToSlide(1)">
+                                        <i class="fa-solid fa-arrow-right ms-1"></i> رجوع
+                                    </button>
+                                </div>
+                                
+                                <!-- تفاصيل الطبيب والمعالجة المختارين -->
+                                <div class="p-3 bg-body-tertiary rounded-3 mb-3 border d-flex justify-content-between align-items-center">
+                                    <span class="small text-muted" id="displayDetails">التفاصيل: -</span>
+                                    <span class="fw-bold text-success fs-5" id="displayFee">-</span>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label class="form-label small text-muted">حدد اليوم:</label>
+                                    <input type="date" id="dateInput" class="form-control bg-main-custom text-main-custom shadow-none py-2" required>
+                                </div>
+
+                                <label class="form-label small text-muted mb-2">الأوقات المتاحة:</label>
+                                <div class="row g-2 text-center mb-4">
+                                    <div class="col-6 col-md-3">
+                                        <div class="card selection-card p-2 rounded-3 small fw-semibold" onclick="selectTime(this, '10:00 صباحاً')">10:00 صباحاً</div>
+                                    </div>
+                                    <div class="col-6 col-md-3">
+                                        <div class="card selection-card p-2 rounded-3 small fw-semibold" onclick="selectTime(this, '11:30 صباحاً')">11:30 صباحاً</div>
+                                    </div>
+                                    <div class="col-6 col-md-3">
+                                        <div class="card selection-card p-2 rounded-3 small fw-semibold" onclick="selectTime(this, '01:00 ظهراً')">01:00 ظهراً</div>
+                                    </div>
+                                    <div class="col-6 col-md-3">
+                                        <div class="card selection-card p-2 rounded-3 small fw-semibold" onclick="selectTime(this, '05:00 مساءً')">05:00 مساءً</div>
+                                    </div>
+                                </div>
+                                <input type="hidden" id="timeInput">
+                            </div>
+
+                            <!-- ==========================================
+                                 الشريحة 3: بيانات المريض + طريقة التذكير + تأكيد الحجز
+                                 ========================================== -->
+                            <div class="wizard-slide" id="slide3">
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <h5 class="fw-bold text-main-custom m-0">بيانات المريض وطريقة التذكير:</h5>
+                                    <button type="button" class="btn btn-sm btn-outline-secondary rounded-pill px-3" onclick="goToSlide(2)">
+                                        <i class="fa-solid fa-arrow-right ms-1"></i> رجوع
+                                    </button>
+                                </div>
+
+                                <!-- أدخال البيانات الشخصية -->
+                                <div class="row g-3 mb-4">
+                                    <div class="col-md-6">
+                                        <label class="form-label small text-muted">الاسم الثلاثي</label>
+                                        <input type="text" id="patientName" class="form-control bg-main-custom text-main-custom shadow-none py-2" placeholder="أدخل اسمك الثلاثي" required oninput="updateSummary()">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label small text-muted">رقم الهاتف (للتواصل)</label>
+                                        <input type="tel" id="patientPhone" class="form-control bg-main-custom text-main-custom shadow-none py-2" placeholder="09xxxxxxxx" required oninput="updateSummary()">
+                                    </div>
+                                </div>
+
+                                <!-- خيار طريقة التذكير بالموعد -->
+                                <div class="mb-4">
+                                    <label class="form-label small fw-semibold text-main-custom mb-2">
+                                        <i class="fa-solid fa-bell text-warning me-1"></i> طريقة التذكير بالمواسم:
+                                    </label>
+                                    <div class="row g-3">
+                                        <div class="col-md-6">
+                                            <div class="card selection-card p-3 rounded-4 text-center selected" onclick="selectReminder(this, 'SMS')">
+                                                <i class="fa-solid fa-comment-sms text-primary fs-3 mb-2"></i>
+                                                <h6 class="fw-bold text-main-custom mb-1">رسائل نصية (SMS)</h6>
+                                                <p class="small text-muted mb-0">تصلك رسالة قبل الموعد بساعتين</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="card selection-card p-3 rounded-4 text-center" onclick="selectReminder(this, 'WhatsApp')">
+                                                <i class="fa-brands fa-whatsapp text-success fs-3 mb-2"></i>
+                                                <h6 class="fw-bold text-main-custom mb-1">تذكير عبر الواتساب</h6>
+                                                <p class="small text-muted mb-0">إشعار مباشر على رقمك</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <input type="hidden" id="reminderInput" value="SMS">
+                                </div>
+
+                                <!-- ملخص سريع وشامل للحجز -->
+                                <div class="p-3 bg-body-tertiary rounded-3 mb-4 border small text-muted">
+                                    <div><i class="fa-solid fa-user-doctor text-success me-1"></i> الطبيب: <span id="summaryDoc" class="fw-bold text-main-custom">-</span></div>
+                                    <div><i class="fa-solid fa-money-bill-wave text-success me-1"></i> التكلفة: <span id="summaryFee" class="fw-bold text-success">-</span></div>
+                                    <div><i class="fa-solid fa-clock text-success me-1"></i> الوقت: <span id="summaryTime" class="fw-bold text-main-custom">-</span></div>
+                                    <div><i class="fa-solid fa-user text-success me-1"></i> الاسم والرقم: <span id="summaryPatient" class="fw-bold text-main-custom">-</span></div>
+                                    <div><i class="fa-solid fa-bell text-success me-1"></i> وسيلة التذكير: <span id="summaryReminder" class="fw-bold text-main-custom">رسائل نصية (SMS)</span></div>
+                                </div>
+
+                                <button type="submit" class="btn w-100 py-3 rounded-pill fw-bold shadow-sm btn-hover-effect" style="background-color: var(--primary-green); color: var(--secondary-accent) !important;">
+                                    <i class="fa-solid fa-check-circle me-1"></i> تأكيد الحجز النهائي
+                                </button>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/js/main.js"></script>
+    <script>
+        // التنقل العرضي بين الشرائح
+        function goToSlide(slideNum) {
+            document.querySelectorAll('.wizard-slide').forEach(s => s.classList.remove('active-slide'));
+            document.getElementById('slide' + slideNum).classList.add('active-slide');
+
+            document.querySelectorAll('.step-pill').forEach((p, idx) => {
+                p.classList.remove('active');
+                if (idx < slideNum) p.classList.add('active');
+            });
+        }
+
+        // 1. اختيار الدكتور والمعالجة والسعر
+        function selectDoctor(cardEl, docName, treatmentName, fee) {
+            cardEl.closest('.row').querySelectorAll('.selection-card').forEach(c => c.classList.remove('selected'));
+            cardEl.classList.add('selected');
+            
+            document.getElementById('doctorInput').value = docName;
+            document.getElementById('treatmentInput').value = treatmentName;
+            document.getElementById('feeInput').value = fee;
+
+            document.getElementById('displayDetails').textContent = `${docName} (${treatmentName})`;
+            document.getElementById('displayFee').textContent = fee;
+            
+            document.getElementById('summaryDoc').textContent = `${docName} - ${treatmentName}`;
+            document.getElementById('summaryFee').textContent = fee;
+
+            setTimeout(() => goToSlide(2), 250);
+        }
+
+        // 2. اختيار الوقت والتاريخ
+        function selectTime(cardEl, timeVal) {
+            const dateVal = document.getElementById('dateInput').value;
+            if (!dateVal) {
+                alert("يرجى تحديد اليوم أولاً قبل اختيار الوقت.");
+                return;
+            }
+
+            cardEl.closest('.row').querySelectorAll('.selection-card').forEach(c => c.classList.remove('selected'));
+            cardEl.classList.add('selected');
+            
+            document.getElementById('timeInput').value = timeVal;
+            document.getElementById('summaryTime').textContent = `${dateVal} - ${timeVal}`;
+
+            setTimeout(() => goToSlide(3), 250);
+        }
+
+        // 3. اختيار طريقة التذكير
+        function selectReminder(cardEl, reminderType) {
+            cardEl.closest('.row').querySelectorAll('.selection-card').forEach(c => c.classList.remove('selected'));
+            cardEl.classList.add('selected');
+
+            document.getElementById('reminderInput').value = reminderType;
+            document.getElementById('summaryReminder').textContent = reminderType === 'SMS' ? 'رسائل نصية (SMS)' : 'واتساب (WhatsApp)';
+        }
+
+        // تحديث الاسم والرقم في الملخص مباشرة
+        function updateSummary() {
+            const name = document.getElementById('patientName').value;
+            const phone = document.getElementById('patientPhone').value;
+            document.getElementById('summaryPatient').textContent = (name || phone) ? `${name} - ${phone}` : '-';
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            fetch("../components/navbar.html").then(res => res.text()).then(data => {
+                document.getElementById("navbar-placeholder").innerHTML = data;
+            });
+            fetch("../components/footer.html").then(res => res.text()).then(data => {
+                document.getElementById("footer-placeholder").innerHTML = data;
+            });
+        });
+    </script>
+</body>
+</html>

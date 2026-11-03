@@ -1,0 +1,87 @@
+
+
+
+<header class="site-header sticky-top shadow-sm">
+
+    <!-- 1. الشريط العلوي الرفيع (Top Bar للطوارئ والمعلومات السريعة) -->
+  <div class="navbar navbar-expand-lg py-2 bg-card-custom shadow-sm border-bottom">
+    <div class="container d-flex justify-content-between align-items-center">
+        <div class="d-flex align-items-center gap-3">
+            <span class="badge bg-danger-subtle text-danger px-2 py-1 rounded-pill fw-normal">
+                <i class="fa-solid fa-circle-dot fa-beat-fade text-danger me-1"></i> دوما الآن: خدمة حجز المواعيد متاحة
+            </span>
+            <span class="text-muted small d-none d-md-inline-block">
+                <button type="button" class="btn btn-primary-custom btn-sm rounded-pill px-3 py-1 fw-semibold" data-bs-toggle="modal" data-bs-target="#loginModal">
+                <i class="fa-solid fa-user ms-1"></i>  إنشاء حساب
+                </button>
+            </span>
+        </div>
+        
+        <div class="d-flex align-items-center gap-3">
+            <!-- زر تبديل الوضع الليلي والنهاري -->
+            <button id="themeToggleBtn" class="btn btn-link text-decoration-none p-0 text-muted" title="تبديل المظهر">
+                <i class="fa-solid fa-moon" id="themeIcon"></i>
+            </button>
+            <div class="vr opacity-25"></div>
+            <a href="pages/emergency.html" class="text-danger text-decoration-none small fw-semibold">
+                <i class="fa-solid fa-triangle-exclamation me-1"></i> أرقام الطوارئ
+            </a>
+        </div>
+    </div>
+</div>
+
+    <!-- 2. الناف بار الرئيسي (Main Navigation) -->
+    <nav class="navbar navbar-expand-lg py-3">
+        <div class="container">
+            
+            <!-- زر القائمة للهواتف (Mobile Toggle) -->
+            <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- الشعار الاحترافي -->
+            <a class="navbar-brand fw-bold fs-4 d-flex align-items-center gap-2 m-0" href="index.html">
+                <div class="logo-box d-flex align-items-center justify-content-center rounded-3 text-white" style="width: 46px; height: 46px; font-size: 1.25rem;">
+    <i class="fa-solid fa-heart-pulse"></i>
+</div>
+                <div class="d-flex flex-column">
+                    <span class="lh-1 fw-extrabold" style="letter-spacing: -0.5px;">صحتك</span>
+                </div>
+            </a>
+
+            <!-- أزرار الإجراءات السريعة (يمين الشاشة للموبايل والديسكتوب) -->
+            <div class="d-flex align-items-center gap-2 order-lg-last">
+                <a href="../pages/book-appointment.html" class="btn btn-primary btn-sm px-3 py-2 rounded-pill shadow-sm fw-semibold d-flex align-items-center gap-1">
+                    <i class="fa-solid fa-calendar-plus"></i>
+                    <span>احجز موعد</span>
+                </a>
+            </div>
+
+            <!-- الروابط في المنتصف بتصميم فخم -->
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                <ul class="navbar-nav align-items-lg-center gap-lg-2 my-3 my-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active px-3 rounded-pill" href="../index.html">الرئيسية</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link px-3 rounded-pill" href="../pages/centers.html">المراكز والعيادات</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link px-3 rounded-pill" href="../pages/medical-services.html">خدماتنا الطبية</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link px-3 rounded-pill" href="../pages/health-tips.html">إرشادات طبية </a>
+                    </li>
+                    <!-- رابط التطبيق الجديد في الناف بار -->
+                    <li class="nav-item">
+                    <a href="../pages/app.html" class="nav-link text-main-custom fw-semibold d-flex align-items-center gap-1">
+                    <i class="fa-solid fa-mobile-screen-button"></i>
+                    <span>التطبيق</span>
+                    </a>
+                    </ul>
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+</header>
