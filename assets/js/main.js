@@ -145,7 +145,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // 1. جلب الناف بار
     const navPlaceholder = document.getElementById("navbar-placeholder");
     if (navPlaceholder) {
-        fetch(basePath + "includes/navbar.html")
+        fetch(basePath + "components/navbar.html")
             .then(response => {
                 if (!response.ok) throw new Error("لم يتم العثور على ملف الناف بار");
                 return response.text();
@@ -160,7 +160,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // 2. جلب الفوتر
     const footerPlaceholder = document.getElementById("footer-placeholder");
     if (footerPlaceholder) {
-        fetch(basePath + "includes/footer.html")
+        fetch(basePath + "components/footer.html")
             .then(response => {
                 if (!response.ok) throw new Error("لم يتم العثور على ملف الفوتر");
                 return response.text();
